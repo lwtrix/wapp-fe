@@ -1,0 +1,10 @@
+.sign-in {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-in .title {
+    align-self: center;
+    font-size: 32px;
+}

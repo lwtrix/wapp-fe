@@ -1,0 +1,10 @@
+.sign-up {
+    width: 420px;
+    display: flex;
+    flex-direction: column;
+}
+
+.sign-up .title {
+    align-self: center;
+    font-size: 32px;
+}
