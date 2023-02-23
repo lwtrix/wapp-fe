@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import ChatPreview from '../chat-preview/ChatPreview'
 
+import './chats-list.css'
+
 const ChatsList = () => {
     const [chats, setChats] = useState([])
 
@@ -26,9 +28,8 @@ const ChatsList = () => {
     <div className='chats-list'>
         <h2 className='title'>Chats</h2>
         <div className="content">
-            {console.log(chats)}
             {chats.length && chats.map(chat => (
-                <ChatPreview chat={chat} />
+                <ChatPreview chat={chat} key={chat._id}/>
             ))}
         </div>
     </div>

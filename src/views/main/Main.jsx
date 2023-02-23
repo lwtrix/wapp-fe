@@ -3,10 +3,14 @@ import { Button } from 'react-bootstrap'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import ChatsList from '../../components/chats-list/ChatsList'
+import SelectedChat from '../../components/selected-chat/SelectedChat'
+
+import './main.css'
 
 const Main = () => {
     const currentUser = useSelector(state => state.currentUser.user)
     const navigate = useNavigate()
+    const selectedChat = useSelector(state => state.selectedChat.chat)
 
     useEffect(() => {
         if(!currentUser) {
@@ -26,6 +30,7 @@ const Main = () => {
         </div>
         <div className="body">
             <ChatsList />
+            {selectedChat && <SelectedChat />}
         </div>
     </div>
   )
