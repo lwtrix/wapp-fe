@@ -25,7 +25,7 @@ const Main = () => {
   return (
     <div style={{ height: "100vh", width: "100vw" }}>
       <div
-        className="w-100 h-100 d-flex justify-content-center align-items-center"
+        className="w-100 h-100 d-flex justify-content-center align-items-center text-color"
         style={{ backgroundColor: "#111B21" }}
       >
         <div className="pt-3" style={{ width: "80vw", height: "98vh" }}>
@@ -56,7 +56,7 @@ const Main = () => {
                 </div>
               </div>
 
-              <Form.Group className="mb-3 mt-3 w-100 d-flex">
+              <Form.Group className="mb-3 mt-3 w-100 d-flex text-light">
                 <Form.Control
                   type="email"
                   placeholder="Search or start new chat"
@@ -64,6 +64,7 @@ const Main = () => {
                     width: "90%",
                     backgroundColor: "#202C33",
                     border: 0,
+                    color: "white",
                   }}
                 />
                 <div

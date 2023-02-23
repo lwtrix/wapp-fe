@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .selected-chat .header .text-container {
@@ -22,7 +22,7 @@
 }
 
 .selected-chat .header .text-container .username {
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .selected-chat .msg-input {

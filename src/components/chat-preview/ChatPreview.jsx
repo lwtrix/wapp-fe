@@ -5,7 +5,7 @@ import { handleSelectChat } from "../../redux/actions/chatActions";
 import "./chat-preview.css";
 
 const ChatPreview = ({ chat }) => {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const currentUser = useSelector((state) => state.currentUser.user);
   const [chatUser, setChatUser] = useState(null);
   const [latestMessage, setLatestMessage] = useState({
@@ -14,8 +14,8 @@ const ChatPreview = ({ chat }) => {
   });
 
   const handleSelect = () => {
-    dispatch(handleSelectChat(chat._id))
-  }
+    dispatch(handleSelectChat(chat._id));
+  };
 
   useEffect(() => {
     const otherUser = chat.members.find(
@@ -37,13 +37,14 @@ const ChatPreview = ({ chat }) => {
   return (
     <div className="chat-preview" onClick={handleSelect}>
       <div className="img-container">
-        <img className="img" src="https://via.placeholder.com/65 " />
+        <img className="img" src="https://via.placeholder.com/50" />
       </div>
       <div className="text-container">
         <span className="username">{chatUser && chatUser.username}</span>
         <span className="latest-message">
           {latestMessage.user !== currentUser.username
-            ? latestMessage.text && `${latestMessage.user}: ${latestMessage.text}`
+            ? latestMessage.text &&
+              `${latestMessage.user}: ${latestMessage.text}`
             : latestMessage.text && `You: ${latestMessage.text}`}
         </span>
       </div>

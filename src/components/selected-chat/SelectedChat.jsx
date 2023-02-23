@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import ChatMessage from "../chat-message/ChatMessage";
+import { AiOutlineSearch } from "react-icons/ai";
+import { BiDotsVerticalRounded } from "react-icons/bi";
 
 import "./selected-chat.css";
 
@@ -50,13 +52,21 @@ const SelectedChat = () => {
 
   return (
     <div className="selected-chat">
-      <div className="header">
-        <div className="img-container">
-          <img className="img" src="https://via.placeholder.com/45 " />
+      <div className="header d-flex justify-content-between">
+        <div className="d-flex">
+          <div className="img-container">
+            <img className="img" src="https://via.placeholder.com/45 " />
+          </div>
+          <div className="text-container d-flex align-items-center">
+            <div>
+              <div className="username">{chatUser.username}</div>
+              <div className="status text-muted">{chatUser.status}</div>
+            </div>
+          </div>
         </div>
-        <div className="text-container">
-          <div className="username">{chatUser.username}</div>
-          <div className="status">{chatUser.status}</div>
+        <div className="d-flex text-color">
+          <AiOutlineSearch size={25} className=" mx-3" />
+          <BiDotsVerticalRounded size={25} className="mx-4" />
         </div>
       </div>
       <div className="chat-body">
