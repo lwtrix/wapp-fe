@@ -13,8 +13,8 @@ import SelectedChat from "../../components/selected-chat/SelectedChat";
 
 const Main = () => {
   const currentUser = useSelector((state) => state.currentUser.user);
+  const selectedChat = useSelector(state => state.selectedChat.chat)
   const navigate = useNavigate();
-  
   useEffect(() => {
     if (!currentUser) {
       navigate("/");
@@ -76,30 +76,9 @@ const Main = () => {
               </Form.Group>
               <ChatsList />
             </Col>
-            {/* <Col
-              xs={8}
-              className="h-100 d-flex aling-items-end"
-              style={{ backgroundColor: "#222E35" }}
-            >
-              <div className="msg-input">
-                <div className="input-container">
-                  <Form.Control
-                    type="text"
-                    placeholder="New message"
-                    value={newMsg}
-                    onChange={(e) => setNewMsg(e.target.value)}
-                  />
-                  {newMsg}
-                </div>
-                <div className="btn-container">
-                  <Button variant="warning" onClick={handleSendMsg}>
-                    Send
-                  </Button>
-                </div>
-              </div>
-                </Col> */}
             <Col xs={8}>
-              <SelectedChat /></Col>
+            {selectedChat && <SelectedChat />}
+            </Col>
           </Row>
         </div>
       </div>
