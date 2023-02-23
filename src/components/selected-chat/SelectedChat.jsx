@@ -13,29 +13,29 @@ const SelectedChat = () => {
     status: "",
   });
   const [newMsg, setNewMsg] = useState(" ");
-  
 
   const renderNewMsg = (msg) => {
-    selectedChat.messages.push(msg)
-  }
+    selectedChat.messages.push(msg);
+  };
 
   const handleSendMsg = async () => {
-    if(newMsg) {
-      console.log(newMsg)
+    if (newMsg) {
+      console.log(newMsg);
       const options = {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
+          Authorization: `Bearer ${localStorage.getItem("accessToken")}`,
         },
-        body: JSON.stringify(newMsg)
-
-      }
-      const baseEndpoint = process.env.REACT_APP_BE_DEV
-      const res = await fetch(`${baseEndpoint}/messages/${selectedChat._id}`, options)
-      const newMsg = await res.json()
-      renderNewMsg(newMsg)
-      setNewMsg('')
+        body: JSON.stringify(newMsg),
+      };
+      const baseEndpoint = process.env.REACT_APP_BE_DEV;
+      const res = await fetch(
+        `${baseEndpoint}/messages/${selectedChat._id}`,
+        options
+      );
+      const newMsg = await res.json();
+      renderNewMsg(newMsg);
+      setNewMsg("");
     }
-    
   };
 
   useEffect(() => {
@@ -46,14 +46,13 @@ const SelectedChat = () => {
       username: otherUser.username,
       status: otherUser.status,
     });
-
   }, [selectedChat]);
 
   return (
     <div className="selected-chat">
       <div className="header">
         <div className="img-container">
-          <img className="img" src="https://via.placeholder.com/65 " />
+          <img className="img" src="https://via.placeholder.com/45 " />
         </div>
         <div className="text-container">
           <div className="username">{chatUser.username}</div>
@@ -74,11 +73,17 @@ const SelectedChat = () => {
             placeholder="New message"
             value={newMsg}
             onChange={(e) => setNewMsg(e.target.value)}
+            id="input-field"
           />
-          {newMsg}
         </div>
         <div className="btn-container">
-          <Button variant="warning" onClick={handleSendMsg}>Send</Button>
+          <Button
+            variant="warning"
+            className="send-btn"
+            onClick={handleSendMsg}
+          >
+            Send
+          </Button>
         </div>
       </div>
     </div>
