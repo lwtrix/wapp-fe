@@ -1,39 +1,37 @@
-import React, { useEffect, useState } from 'react'
-import ChatPreview from '../chat-preview/ChatPreview'
+import React, { useEffect, useState } from "react";
+import ChatPreview from "../chat-preview/ChatPreview";
 
-import './chats-list.css'
+import "./chats-list.css";
 
 const ChatsList = () => {
-    const [chats, setChats] = useState([])
+  const [chats, setChats] = useState([]);
 
-    const getUserChats = async () => {
-        const options = {
-            headers: {
-                'Authorization': `Bearer ${localStorage.accessToken}`
-            }
-        }
+  const getUserChats = async () => {
+    const options = {
+      headers: {
+        Authorization: `Bearer ${localStorage.accessToken}`,
+      },
+    };
 
-        const baseEndpoint = process.env.REACT_APP_BE_DEV
-        const res = await fetch(`${baseEndpoint}/chats`, options)
+    const baseEndpoint = process.env.REACT_APP_BE_DEV;
+    const res = await fetch(`${baseEndpoint}/chats`, options);
 
-        const chats = await res.json()
-        setChats(chats)
-    }
+    const chats = await res.json();
+    setChats(chats);
+  };
 
-    useEffect(() => {
-        getUserChats()
-    }, [])
+  useEffect(() => {
+    getUserChats();
+  }, []);
 
   return (
-    <div className='chats-list'>
-        <h2 className='title'>Chats</h2>
-        <div className="content">
-            {chats.length && chats.map(chat => (
-                <ChatPreview chat={chat} key={chat._id}/>
-            ))}
-        </div>
+    <div className="chats-list w-100">
+      <div className="content w-100">
+        {console.log(chats)}
+        {chats.length && chats.map((chat) => <ChatPreview chat={chat} />)}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ChatsList
+export default ChatsList;
