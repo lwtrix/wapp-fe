@@ -1,10 +1,33 @@
 .sign-in {
-    width: 420px;
-    display: flex;
-    flex-direction: column;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+
+  height: 25%;
 }
 
 .sign-in .title {
-    align-self: center;
-    font-size: 32px;
+  align-self: center;
+  font-size: 32px;
+}
+.main-div {
+  position: absolute;
+  left: 50%;
+  top: 65%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.sign-in-position {
+  position: absolute;
+  left: 50%;
+  top: 30%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.sign-in-btn {
+  background-color: #00a884 !important;
+  border: none !important;
+}
+.sign-in-btn:hover {
+  background-color: #028a6c !important;
 }
