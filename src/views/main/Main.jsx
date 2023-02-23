@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Row, Form } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
@@ -14,12 +14,12 @@ import SelectedChat from "../../components/selected-chat/SelectedChat";
 const Main = () => {
   const currentUser = useSelector((state) => state.currentUser.user);
   const navigate = useNavigate();
-  const selectedChat = useSelector((state) => state.selectedChat.chat);
-
+  
   useEffect(() => {
     if (!currentUser) {
       navigate("/");
     }
+    console.log(currentUser)
   }, [currentUser]);
 
   return (
@@ -37,10 +37,11 @@ const Main = () => {
               >
                 <img
                   src={
+                    currentUser ?
                     currentUser.avatar
                       ? currentUser.avatar
                       : "https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133354456-stock-illustration-default-placeholder-profile-icon.jpg"
-                  }
+                  : ''}
                   style={{ width: "45px", borderRadius: "50%" }}
                 />
                 <div
@@ -75,7 +76,7 @@ const Main = () => {
               </Form.Group>
               <ChatsList />
             </Col>
-            <Col
+            {/* <Col
               xs={8}
               className="h-100 d-flex aling-items-end"
               style={{ backgroundColor: "#222E35" }}
@@ -96,7 +97,9 @@ const Main = () => {
                   </Button>
                 </div>
               </div>
-            </Col>
+                </Col> */}
+            <Col xs={8}>
+              <SelectedChat /></Col>
           </Row>
         </div>
       </div>

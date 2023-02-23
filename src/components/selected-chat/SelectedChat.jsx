@@ -13,6 +13,7 @@ const SelectedChat = () => {
     status: "",
   });
   const [newMsg, setNewMsg] = useState(" ");
+  
 
   const renderNewMsg = (msg) => {
     selectedChat.messages.push(msg)
