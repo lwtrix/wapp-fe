@@ -74,8 +74,8 @@ const SelectedChat = () => {
             placeholder="New message"
             value={newMsg}
             onChange={(e) => setNewMsg(e.target.value)}
+            id='input-field'
           />
-          {newMsg}
         </div>
         <div className="btn-container">
           <Button variant="warning" onClick={handleSendMsg}>Send</Button>
