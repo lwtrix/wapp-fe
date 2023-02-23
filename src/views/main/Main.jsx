@@ -13,13 +13,13 @@ import SelectedChat from "../../components/selected-chat/SelectedChat";
 
 const Main = () => {
   const currentUser = useSelector((state) => state.currentUser.user);
-  const selectedChat = useSelector(state => state.selectedChat.chat)
+  const selectedChat = useSelector((state) => state.selectedChat.chat);
   const navigate = useNavigate();
   useEffect(() => {
     if (!currentUser) {
       navigate("/");
     }
-    console.log(currentUser)
+    console.log(currentUser);
   }, [currentUser]);
 
   return (
@@ -29,7 +29,7 @@ const Main = () => {
         style={{ backgroundColor: "#111B21" }}
       >
         <div className="pt-3" style={{ width: "80vw", height: "98vh" }}>
-          <Row className="h-100">
+          <Row className="h-100 g-0">
             <Col xs={4}>
               <div
                 style={{ height: "6vh", backgroundColor: "#202C33" }}
@@ -37,11 +37,12 @@ const Main = () => {
               >
                 <img
                   src={
-                    currentUser ?
-                    currentUser.avatar
+                    currentUser
                       ? currentUser.avatar
-                      : "https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133354456-stock-illustration-default-placeholder-profile-icon.jpg"
-                  : ''}
+                        ? currentUser.avatar
+                        : "https://st3.depositphotos.com/9998432/13335/v/600/depositphotos_133354456-stock-illustration-default-placeholder-profile-icon.jpg"
+                      : ""
+                  }
                   style={{ width: "45px", borderRadius: "50%" }}
                 />
                 <div
@@ -76,9 +77,7 @@ const Main = () => {
               </Form.Group>
               <ChatsList />
             </Col>
-            <Col xs={8}>
-            {selectedChat && <SelectedChat />}
-            </Col>
+            <Col xs={8}>{selectedChat && <SelectedChat />}</Col>
           </Row>
         </div>
       </div>
