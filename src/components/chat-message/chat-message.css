@@ -1,0 +1,12 @@
+.chat-message-me {
+  background-color: #005c4b !important;
+  padding: 0.5rem;
+  width: max-content;
+  border-radius: 5px;
+}
+.chat-message-anotherUser {
+  background-color: #202c33;
+  padding: 0.5rem;
+  width: max-content;
+  border-radius: 5px;
+}
