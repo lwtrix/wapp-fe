@@ -19,7 +19,6 @@ const Main = () => {
     if (!currentUser) {
       navigate("/");
     }
-    console.log(currentUser)
   }, [currentUser]);
 
   return (
