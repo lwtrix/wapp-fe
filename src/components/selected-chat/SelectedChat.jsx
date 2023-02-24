@@ -16,6 +16,7 @@ const SelectedChat = () => {
     status: "",
   });
 
+
   const broadcastMsg = (msg) => {
     socket.emit("send_message", { chatId: selectedChat._id, msg });
   };
@@ -68,7 +69,7 @@ const SelectedChat = () => {
     <div className="selected-chat">
       <div className="header">
         <div className="img-container">
-          <img className="img" src="https://via.placeholder.com/65 " />
+          <img className="img" src="https://via.placeholder.com/45 " />
         </div>
         <div className="text-container">
           <div className="username">{chatUser.username}</div>
@@ -97,7 +98,11 @@ const SelectedChat = () => {
           />
         </div>
         <div className="btn-container">
-          <Button variant="warning" onClick={handleSendMsg}>
+          <Button
+            variant="warning"
+            className="send-btn"
+            onClick={handleSendMsg}
+          >
             Send
           </Button>
         </div>
