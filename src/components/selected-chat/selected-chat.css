@@ -46,7 +46,8 @@
 
 .chat-body {
   padding: 0.8rem;
-
+  height: 85vh !important;
+  overflow-y: scroll;
   color: white;
 }
 .msg-input {

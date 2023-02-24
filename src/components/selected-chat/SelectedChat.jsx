@@ -16,7 +16,6 @@ const SelectedChat = () => {
     status: "",
   });
 
-
   const broadcastMsg = (msg) => {
     socket.emit("send_message", { chatId: selectedChat._id, msg });
   };
@@ -43,7 +42,7 @@ const SelectedChat = () => {
       if (res.ok) {
         const msg = await res.json();
         broadcastMsg(msg);
-        dispatch(receiveNewMessage(msg))
+        dispatch(receiveNewMessage(msg));
         setNewMsg("");
       }
     }
