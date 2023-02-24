@@ -1,29 +1,33 @@
 .chat-preview {
-    display: flex;
-    align-items: center;
-    background-color: lightgray;
-    width: 30%;
-    margin-bottom: 3px;
-    padding: 8px 12px;
+  color: white;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 3px;
+  padding: 8px 12px;
+}
+.chat-preview:hover {
+  background-color: #202c33;
 }
 
 .chat-preview .img-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .chat-preview .img-container .img {
-    border-radius: 50%;
-    margin-right: 8px;
+  border-radius: 50%;
+  margin-right: 8px;
 }
 
 .chat-preview .text-container {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .chat-preview .text-container .username {
-    font-size: 18px;
-    font-weight: 500;
+  font-size: 18px;
+  font-weight: 500;
 }

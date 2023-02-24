@@ -1,68 +1,48 @@
 import React, { useState } from "react";
-import { Button, Form } from "react-bootstrap";
+import { Button, Container, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../../redux/actions/userActions";
 
 import "./sign-in.css";
+import SignInForm from "./SignInForm";
 
 const SignIn = () => {
-  const dispatch = useDispatch();
-  const navigate = useNavigate()
-  const [credentials, setCredentials] = useState(null);
-
-  const handleChange = (value, fieldToSet) => {
-    setCredentials({
-      ...credentials,
-      [fieldToSet]: value,
-    });
-  };
-
-  const handleSignIn = async () => {
-    if (credentials.email && credentials.password) {
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(credentials),
-      };
-
-      const baseEndpoint = process.env.REACT_APP_BE_DEV;
-      const res = await fetch(`${baseEndpoint}/auth/signin`, options);
-
-      if (res.ok) {
-        const response = await res.json();
-        dispatch(setUser(response.token));
-        navigate('/main')
-      }
-    }
-  };
-
   return (
-    <div className="sign-in my-3 mx-2">
-      <h2 className="title">Sign In</h2>
-      <div className="inputs-container mb-2">
-        <Form.Group className="mb-2">
-          <Form.Label>Email</Form.Label>
-          <Form.Control
-            type="email"
-            onChange={(e) => handleChange(e.target.value, "email")}
-            placeholder="johndoe@gmail.com"
+    <div
+      style={{
+        height: "100vh",
+        width: "100vw",
+        maxHeight: "100vh",
+        overflow: "hidden",
+      }}
+      className=" position-relative"
+    >
+      <div
+        style={{ height: "25vh", backgroundColor: "#00A884" }}
+        className="w-100 d-flex justify-content-center"
+      >
+        <div className="w-50 p-3 text-light " style={{ fontSize: "1rem" }}>
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/1022px-WhatsApp.svg.png"
+            style={{ width: "2.5vw", marginRight: "5px" }}
           />
-        </Form.Group>
-        <Form.Group>
-          <Form.Label>Password</Form.Label>
-          <Form.Control
-            type="password"
-            onChange={(e) => handleChange(e.target.value, "password")}
-            placeholder="***********"
-          />
-        </Form.Group>
+          WhatsApp Web
+        </div>
       </div>
-      <Button className="sign-in-btn" onClick={handleSignIn}>
-        Submit
-      </Button>
+      <div
+        style={{ height: "75vh", backgroundColor: "#111B21" }}
+        className="w-100"
+      >
+        <div
+          className="bg-light main-div d-flex justify-content-center align-content-center"
+          style={{ width: "1000px", height: "100%" }}
+        >
+          <div className="sign-in-position">
+            <SignInForm />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
