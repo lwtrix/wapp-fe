@@ -27,8 +27,7 @@ const ChatsList = () => {
   return (
     <div className="chats-list w-100">
       <div className="content w-100">
-        {console.log(chats)}
-        {chats.length && chats.map((chat) => <ChatPreview chat={chat} />)}
+        {chats.length && chats.map((chat) => <ChatPreview chat={chat} key={chat._id}/>)}
       </div>
     </div>
   );
